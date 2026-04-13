@@ -74,6 +74,16 @@ export default function AdminMenuPage() {
           <Link href="/admin" className="bebas text-xl tracking-widest px-10 py-5 border-r-2 border-black hover:bg-[#F5C200] transition-colors">Overview</Link>
           <Link href="/admin/orders-admin" className="bebas text-xl tracking-widest px-10 py-5 border-r-2 border-black hover:bg-[#F5C200] transition-colors">Orders</Link>
           <Link href="/admin/menu-admin" className="bebas text-xl tracking-widest px-10 py-5 border-r-2 border-black bg-[#F5C200] text-black">Menu</Link>
+          <button
+  onClick={async () => {
+    const supabase = createClient()
+    await supabase.auth.signOut()
+    window.location.href = '/admin/login'
+  }}
+  className="bebas text-xl tracking-widest px-10 py-5 border-r-2 border-black hover:bg-red-500 hover:text-white transition-colors ml-auto"
+>
+  Sign Out
+</button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3">
